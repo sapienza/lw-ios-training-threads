@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "ImageLoder.h"
 
 @interface ViewController ()
    @property (nonatomic, weak)  IBOutlet UIImageView *imageView;
@@ -26,6 +27,9 @@
 }
 
 -(IBAction)updateImgOnTap:(id)sender{
+  //testing singleton implementation
+  [ImageLoder load];
+
   [self.activityView startAnimating];
 
   dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
