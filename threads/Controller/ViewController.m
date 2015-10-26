@@ -18,8 +18,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-
-    [self.activityView startAnimating];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -27,11 +25,12 @@
     // Dispose of any resources that can be recreated.
 }
 
-
 -(IBAction)updateImgOnTap:(id)sender{
+  [self.activityView startAnimating];
+
   dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
     NSLog(@"Img will be loaded in the background thread");
-
+    
     NSURL *url = [NSURL URLWithString:@"http://go.nasa.gov/1NvITOM"];
 
     NSData *data = [[NSData alloc] initWithContentsOfURL:url];
