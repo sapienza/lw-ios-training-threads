@@ -26,14 +26,24 @@
 
 
 -(IBAction)updateImgOnTap:(id)sender{
-    NSLog(@"logging");
-    
+  dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+    NSLog(@"Img will be loaded in the background thread");
+
     NSURL *url = [NSURL URLWithString:@"http://go.nasa.gov/1NvITOM"];
-    
+
     NSData *data = [[NSData alloc] initWithContentsOfURL:url];
-    
+
     UIImage *tmpImage = [[UIImage alloc] initWithData:data];
-    
-    self.imageView.image = tmpImage;
+
+    NSLog(@"Img loaded in the background thread");
+
+    // After img be loaded in bg, we need to send the data to the main thead
+
+    // Always when we need to update something related to interface, we need
+    // to use the main queue/main thread. UI elements are there.
+    dispatch_async(dispatch_get_main_queue(), ^{
+      self.imageView.image = tmpImage;
+    });
+  });
 }
 @end
