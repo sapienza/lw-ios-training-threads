@@ -9,7 +9,8 @@
 #import "ViewController.h"
 
 @interface ViewController ()
-   @property (nonatomic, weak) IBOutlet UIImageView *imageView;
+   @property (nonatomic, weak)  IBOutlet UIImageView *imageView;
+   @property (nonatomic,retain) IBOutlet UIActivityIndicatorView * activityView;
 @end
 
 @implementation ViewController
@@ -17,6 +18,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+
+    [self.activityView startAnimating];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -42,6 +45,7 @@
     // Always when we need to update something related to interface, we need
     // to use the main queue/main thread. UI elements are there.
     dispatch_async(dispatch_get_main_queue(), ^{
+      [self.activityView stopAnimating];
       self.imageView.image = tmpImage;
     });
   });

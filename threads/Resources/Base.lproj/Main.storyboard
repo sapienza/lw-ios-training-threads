@@ -27,6 +27,9 @@
                                     <action selector="updateImgOnTap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TKH-RG-IuV"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="NTR-w8-WK3">
+                                <rect key="frame" x="290" y="272" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
