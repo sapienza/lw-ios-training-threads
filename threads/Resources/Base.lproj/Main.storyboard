@@ -41,6 +41,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityView" destination="NTR-w8-WK3" id="1R1-lE-OEF"/>
                         <outlet property="imageView" destination="DqG-wF-pKW" id="Puh-Bo-X2X"/>
                     </connections>
                 </viewController>

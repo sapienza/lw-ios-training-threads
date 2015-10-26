@@ -16,6 +16,7 @@
 		3BE9B0751BDE5E54004A476D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BE9B06C1BDE5E54004A476D /* Main.storyboard */; };
 		3BE9B0761BDE5E54004A476D /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3BE9B06F1BDE5E54004A476D /* Info.plist */; };
 		3BE9B0771BDE5E54004A476D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE9B0701BDE5E54004A476D /* main.m */; };
+		3BE9B07A1BDE8498004A476D /* ImageLoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE9B0791BDE8498004A476D /* ImageLoder.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,8 @@
 		3BE9B06D1BDE5E54004A476D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3BE9B06F1BDE5E54004A476D /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3BE9B0701BDE5E54004A476D /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3BE9B0781BDE8498004A476D /* ImageLoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageLoder.h; sourceTree = "<group>"; };
+		3BE9B0791BDE8498004A476D /* ImageLoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageLoder.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +117,8 @@
 		3BE9B02F1BDE5DEA004A476D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3BE9B0781BDE8498004A476D /* ImageLoder.h */,
+				3BE9B0791BDE8498004A476D /* ImageLoder.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -304,6 +309,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BE9B07A1BDE8498004A476D /* ImageLoder.m in Sources */,
 				3BE9B0711BDE5E54004A476D /* AppDelegate.m in Sources */,
 				3BE9B0771BDE5E54004A476D /* main.m in Sources */,
 				3BE9B0721BDE5E54004A476D /* ViewController.m in Sources */,
