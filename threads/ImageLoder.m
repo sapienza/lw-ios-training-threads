@@ -9,21 +9,36 @@
 #import "ImageLoder.h"
 
 @implementation ImageLoder
-+(ImageLoder*)shareManager{
+
++(instancetype)sharedInstance{
     
-    static ImageLoder *sharedInstance=nil;
-    static dispatch_once_t  oncePredecate;
+    static id instance =nil;
     
-    dispatch_once(&oncePredecate,^{
-        sharedInstance=[[ImageLoder alloc] init];
+    static dispatch_once_t  onceToken;
+    dispatch_once(&onceToken,^{
+        instance=[[ImageLoder alloc] init];
         
     });
-    return sharedInstance;
+    return instance;
 }
 
-+(void)load{
-  NSLog(@"test implementation");        
+-(void)loadImageFromString:(NSString *)string
+                     start:(startBlockType)startBlock
+                completion:(completionBlockType)completion
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        startBlock();
+    });
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+        NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString: string ]];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            completion(data);
+        });
+    });
 }
+
 @end
 
 

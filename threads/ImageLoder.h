@@ -8,6 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
+typedef void(^startBlockType)(void);
+typedef void(^completionBlockType)(NSData *imageData);
+
 @interface ImageLoder : NSObject
-+(ImageLoder*)shareManager;
+
++(instancetype)sharedInstance;
+
+-(void)loadImageFromString:(NSString *)string
+                     start:(startBlockType)startBlock
+                completion:(completionBlockType)completion;
+
 @end

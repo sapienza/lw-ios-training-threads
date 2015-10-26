@@ -26,31 +26,42 @@
     // Dispose of any resources that can be recreated.
 }
 
--(IBAction)updateImgOnTap:(id)sender{
-  //testing singleton implementation
-  [ImageLoder load];
+//-(IBAction)updateImgOnTap:(id)sender{
+//  //testing singleton implementation
+//  [ImageLoder load];
+//
+//  [self.activityView startAnimating];
+//
+//  dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+//    NSLog(@"Img will be loaded in the background thread");
+//    
+//    NSURL *url = [NSURL URLWithString:@"http://go.nasa.gov/1NvITOM"];
+//
+//    NSData *data = [[NSData alloc] initWithContentsOfURL:url];
+//
+//    UIImage *tmpImage = [[UIImage alloc] initWithData:data];
+//
+//    NSLog(@"Img loaded in the background thread");
+//
+//    // After img be loaded in bg, we need to send the data to the main thead
+//
+//    // Always when we need to update something related to interface, we need
+//    // to use the main queue/main thread. UI elements are there.
+//    dispatch_async(dispatch_get_main_queue(), ^{
+//      [self.activityView stopAnimating];
+//      self.imageView.image = tmpImage;
+//    });
+//  });
+//}
 
-  [self.activityView startAnimating];
 
-  dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-    NSLog(@"Img will be loaded in the background thread");
-    
-    NSURL *url = [NSURL URLWithString:@"http://go.nasa.gov/1NvITOM"];
-
-    NSData *data = [[NSData alloc] initWithContentsOfURL:url];
-
-    UIImage *tmpImage = [[UIImage alloc] initWithData:data];
-
-    NSLog(@"Img loaded in the background thread");
-
-    // After img be loaded in bg, we need to send the data to the main thead
-
-    // Always when we need to update something related to interface, we need
-    // to use the main queue/main thread. UI elements are there.
-    dispatch_async(dispatch_get_main_queue(), ^{
-      [self.activityView stopAnimating];
-      self.imageView.image = tmpImage;
-    });
-  });
+-(IBAction)updateImgOnTap:(id)sender
+{
+   [[ImageLoder sharedInstance] loadImageFromString:@"http://go.nasa.gov/1NvITOM" start:^{
+   
+   } completion:^(NSData *data) {
+   
+   }];
 }
+
 @end
